@@ -1,737 +1,390 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>오늘의 급식 - 취향 맞춤 알리미</title>
-
+    <title>오늘의 급식 - 투표 & 취향 맞춤</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-
     <style>
-
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; -webkit-tap-highlight-color: transparent; }
-
-        .glass-morphism { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-
+        .glass-morphism { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .loader { border-top-color: #3b82f6; animation: spinner 0.6s linear infinite; }
-
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         .allergy-badge { 
-
-            font-size: 0.7rem; padding: 2px 5px; border-radius: 6px; 
-
-            background: #fee2e2; color: #ef4444; margin-left: 3px;
-
-            font-weight: bold; border: 1px solid #fecaca; display: inline-flex; align-items: center;
-
+            font-size: 0.7rem; padding: 1px 4px; border-radius: 4px; 
+            background: #fee2e2; color: #ef4444; margin-left: 2px;
+            font-weight: bold; border: 1px solid #fecaca;
         }
-
+        .vote-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .vote-btn:active { transform: scale(0.9); }
+        .tab-active { color: #3b82f6 !important; }
+        .progress-bar-transition { transition: width 0.5s ease-in-out; }
     </style>
-
 </head>
+<body class="max-w-md mx-auto min-h-screen shadow-xl bg-gray-50 pb-40">
 
-<body class="max-w-md mx-auto min-h-screen shadow-xl bg-gray-50 pb-20">
-
-
-
-    <header class="sticky top-0 z-50 glass-morphism px-4 py-4 flex justify-between items-center shadow-sm">
-
-        <h1 class="text-xl font-bold text-blue-600"><i class="fa-solid fa-utensils mr-2"></i>급식 알리미</h1>
-
+    <header class="sticky top-0 z-40 glass-morphism px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-white/80">
+        <div>
+            <h1 id="display-school-name" class="text-xl font-bold text-gray-800 tracking-tight">학교를 선택하세요</h1>
+            <p id="display-school-location" class="text-[10px] text-gray-400 font-medium uppercase tracking-widest mt-0.5">School Meal Info</p>
+        </div>
+        <button onclick="app.toggleFavoriteSchool()" id="fav-toggle-btn" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-200 transition-transform active:scale-90">
+            <i class="fa-regular fa-star text-white"></i>
+        </button>
     </header>
 
-
-
-    <main class="pb-32">
-
-        <!-- School Setup Section -->
-
-        <section id="setup-section" class="p-6 space-y-6">
-
-            <div class="text-center py-8">
-
-                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-
-                    <i class="fa-solid fa-school text-3xl text-blue-500"></i>
-
+    <main id="main-content" class="mt-4">
+        <!-- Section: School Search (Initial State) -->
+        <section id="setup-section" class="px-6 space-y-4">
+            <div class="bg-white p-5 rounded-[2rem] shadow-sm border border-gray-100">
+                <h2 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-school text-blue-500"></i> 우리 학교 찾기
+                </h2>
+                <div class="relative">
+                    <input type="text" id="school-search-input" placeholder="학교 이름을 입력하세요 (예: 한빛중)" 
+                        class="w-full bg-gray-50 border-none rounded-2xl py-4 pl-5 pr-12 text-sm focus:ring-2 focus:ring-blue-400 transition-all outline-none">
+                    <button onclick="app.searchSchool()" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-blue-600 text-white rounded-xl shadow-md flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </button>
                 </div>
-
-                <h2 class="text-2xl font-bold text-gray-800">학교를 검색하세요</h2>
-
-                <p class="text-gray-500 mt-2 text-sm">급식 정보를 가져올 학교를 지정합니다.</p>
-
             </div>
-
-            <div class="relative">
-
-                <input type="text" id="school-search-input" placeholder="학교 이름 입력 (예: 서울고)" 
-
-                    class="w-full p-4 pr-12 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm transition-all">
-
-                <button onclick="app.searchSchool()" class="absolute right-4 top-1/2 -translate-y-1/2 text-blue-500">
-
-                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
-
-                </button>
-
-            </div>
-
-            <div id="school-search-results" class="space-y-2 max-h-64 overflow-y-auto"></div>
-
+            <div id="school-search-results" class="space-y-3"></div>
         </section>
 
-
-
-        <!-- Meal Display Section -->
-
-        <section id="meal-section" class="hidden p-4 space-y-4">
-
-            <!-- Current School Info -->
-
-            <div id="current-school-card" class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-5 text-white shadow-lg flex justify-between items-center">
-
-                <div>
-
-                    <span id="display-school-location" class="text-blue-100 text-[10px] font-medium uppercase">교육청</span>
-
-                    <h2 id="display-school-name" class="text-xl font-bold">학교명</h2>
-
-                </div>
-
-                <button id="fav-toggle-btn" onclick="app.toggleFavoriteSchool()" class="bg-white/20 p-2 rounded-xl backdrop-blur-md">
-
-                    <i class="fa-regular fa-star text-xl"></i>
-
-                </button>
-
-            </div>
-
-
-
+        <!-- Section: Meal Display -->
+        <section id="meal-section" class="hidden px-6 pb-10">
             <!-- Date Picker -->
-
-            <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between">
-
-                <div class="flex items-center gap-3">
-
-                    <i class="fa-solid fa-calendar-day text-blue-500 text-lg"></i>
-
+            <div class="flex items-center justify-between mb-6 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-day text-blue-500"></i>
                     <input type="date" id="meal-date-picker" onchange="app.handleDateChange(this.value)" 
-
-                        class="font-bold text-gray-700 focus:outline-none bg-transparent cursor-pointer">
-
+                        class="font-bold text-gray-700 focus:outline-none bg-transparent cursor-pointer text-sm">
                 </div>
-
-                <div class="flex gap-2">
-
-                    <button onclick="app.offsetDate(-1)" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50">
-
+                <div class="flex gap-1">
+                    <button onclick="app.offsetDate(-1)" class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50 hover:text-blue-600">
                         <i class="fa-solid fa-chevron-left text-xs"></i>
-
                     </button>
-
-                    <button onclick="app.offsetDate(1)" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50">
-
+                    <button onclick="app.offsetDate(1)" class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50 hover:text-blue-600">
                         <i class="fa-solid fa-chevron-right text-xs"></i>
-
                     </button>
-
                 </div>
-
             </div>
 
+            <!-- Meal Cards Container -->
+            <div id="meal-content" class="space-y-6"></div>
 
-
-            <div id="meal-content" class="space-y-4"></div>
-
-
-
-            <!-- Allergy Guide (Always Visible) -->
-
-            <div class="mt-8 bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
-
-                <div class="flex items-center gap-2 mb-4 border-b pb-2">
-
+            <div class="mt-8 bg-white rounded-3xl p-6 border border-gray-200 shadow-sm mb-10">
+                <div class="flex items-center gap-2 mb-4 border-b pb-3">
                     <i class="fa-solid fa-circle-exclamation text-red-500"></i>
-
                     <h3 class="font-bold text-gray-800 text-sm">알레르기 유발 물질 안내</h3>
-
                 </div>
-
-                <div id="allergy-guide-grid" class="grid grid-cols-3 gap-2 text-[11px]">
-
+                <div id="allergy-guide-grid" class="grid grid-cols-3 gap-x-2 gap-y-1 text-[10px]">
                     <!-- JS fills this -->
-
                 </div>
-
-                <p class="text-[10px] text-gray-400 mt-4 leading-tight text-center">* 학교 사정에 따라 식단이 변경될 수 있습니다.</p>
-
             </div>
-
         </section>
 
-
-
-        <!-- Favorites Section -->
-
-        <section id="favorites-section" class="hidden p-6 space-y-4">
-
-            <h2 class="text-xl font-bold text-gray-800 mb-4">취향 관리</h2>
-
+        <!-- Section: Favorites Management -->
+        <section id="favorites-section" class="hidden px-6 space-y-6 pb-10">
+            <h2 class="text-xl font-bold text-gray-800">취향 관리</h2>
             <div id="favorites-list" class="space-y-6"></div>
-
         </section>
-
     </main>
 
-
-
-    <!-- Navigation -->
-
-    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto glass-morphism border-t border-gray-100 px-6 py-3 flex justify-around items-center rounded-t-3xl z-50">
-
-        <button onclick="ui.showSection('meal')" id="nav-meal" class="flex flex-col items-center gap-1 transition-all">
-
-            <i class="fa-solid fa-calendar-days text-xl"></i>
-
-            <span class="text-[10px]">급식 정보</span>
-
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto glass-morphism border-t border-gray-100 px-8 py-4 flex justify-around items-center rounded-t-[2.5rem] z-50 bg-white/90">
+        <button onclick="ui.showSection('meal')" id="nav-meal" class="flex flex-col items-center gap-1 text-blue-600">
+            <i class="fa-solid fa-utensils text-lg"></i>
+            <span class="text-[9px] font-bold">급식정보</span>
         </button>
-
-        <button onclick="ui.showSection('setup')" id="nav-setup" class="flex flex-col items-center gap-1 transition-all">
-
-            <i class="fa-solid fa-magnifying-glass text-xl"></i>
-
-            <span class="text-[10px]">학교 찾기</span>
-
+        <button onclick="ui.showSection('setup')" id="nav-setup" class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+            <span class="text-[9px] font-bold">학교변경</span>
         </button>
-
-        <button onclick="ui.showSection('favorites')" id="nav-fav" class="flex flex-col items-center gap-1 transition-all">
-
-            <i class="fa-solid fa-heart text-xl"></i>
-
-            <span class="text-[10px]">취향/관리</span>
-
+        <button onclick="ui.showSection('favorites')" id="nav-fav" class="flex flex-col items-center gap-1 text-gray-400">
+            <i class="fa-solid fa-heart text-lg"></i>
+            <span class="text-[9px] font-bold">내취향</span>
         </button>
-
     </nav>
 
-
-
+    <!-- Loader Overlay -->
     <div id="global-loader" class="fixed inset-0 bg-white/80 z-[100] hidden flex flex-col items-center justify-center">
-
-        <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-
-        <p class="text-blue-600 font-medium text-sm">급식 정보를 불러오는 중...</p>
-
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-100 h-10 w-10 mb-4"></div>
+        <p class="text-sm text-gray-500 font-medium">급식을 가져오는 중...</p>
     </div>
 
-
-
     <script>
-
         const allergyMap = {
-
             "1": "난류", "2": "우유", "3": "메밀", "4": "땅콩", "5": "대두", "6": "밀", "7": "고등어", "8": "게", "9": "새우", "10": "돼지고기", "11": "복숭아", "12": "토마토", "13": "아황산류", "14": "호두", "15": "닭고기", "16": "쇠고기", "17": "오징어", "18": "조개류", "19": "잣"
-
         };
-
-
 
         const state = {
-
             currentSchool: JSON.parse(localStorage.getItem('selectedSchool')) || null,
-
-            favorites: JSON.parse(localStorage.getItem('favoriteSchools')) || [],
-
+            favoriteSchools: JSON.parse(localStorage.getItem('favoriteSchools')) || [],
             favDishes: JSON.parse(localStorage.getItem('favDishes')) || [],
-
             badDishes: JSON.parse(localStorage.getItem('badDishes')) || [],
-
+            votes: JSON.parse(localStorage.getItem('mealVotes')) || {}, // { voteKey: { up: 0, down: 0, myVote: 'up'|'down' } }
             selectedDate: new Date().toISOString().split('T')[0].replace(/-/g, '')
-
         };
-
-
 
         const ui = {
-
             showSection(section) {
-
                 document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
-
-                document.querySelectorAll('nav button').forEach(b => b.classList.remove('text-blue-600', 'scale-110'));
-
+                document.querySelectorAll('nav button').forEach(b => {
+                    b.classList.remove('text-blue-600');
+                    b.classList.add('text-gray-400');
+                });
                 
-
                 if (section === 'meal') {
-
                     if (!state.currentSchool) return this.showSection('setup');
-
                     document.getElementById('meal-section').classList.remove('hidden');
-
-                    document.getElementById('nav-meal').classList.add('text-blue-600', 'scale-110');
-
+                    document.getElementById('nav-meal').classList.replace('text-gray-400', 'text-blue-600');
                     app.initMealView();
-
                 } else if (section === 'setup') {
-
                     document.getElementById('setup-section').classList.remove('hidden');
-
-                    document.getElementById('nav-setup').classList.add('text-blue-600', 'scale-110');
-
+                    document.getElementById('nav-setup').classList.replace('text-gray-400', 'text-blue-600');
                 } else if (section === 'favorites') {
-
                     document.getElementById('favorites-section').classList.remove('hidden');
-
-                    document.getElementById('nav-fav').classList.add('text-blue-600', 'scale-110');
-
+                    document.getElementById('nav-fav').classList.replace('text-gray-400', 'text-blue-600');
                     this.renderFavorites();
-
                 }
-
             },
-
             toggleLoader(show) {
-
                 document.getElementById('global-loader').classList.toggle('hidden', !show);
-
             },
-
             renderFavorites() {
-
                 const list = document.getElementById('favorites-list');
-
-                let html = '';
-
-
-
-                // 선호/기피 음식 관리
-
-                const renderChipList = (title, items, colorClass, icon, toggleFunc) => `
-
-                    <div>
-
-                        <h4 class="text-xs font-bold ${colorClass} mb-3 flex items-center gap-1">
-
+                const renderGroup = (title, items, icon, colorClass, toggleFn) => `
+                    <div class="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm">
+                        <h4 class="text-xs font-bold ${colorClass} mb-4 flex items-center gap-1.5 uppercase tracking-tight">
                             <i class="${icon}"></i> ${title}
-
                         </h4>
-
                         <div class="flex flex-wrap gap-2">
-
                             ${items.length ? items.map(dish => `
-
-                                <div class="bg-white border px-3 py-2 rounded-xl flex items-center gap-2 shadow-sm">
-
+                                <div class="bg-gray-50 px-3 py-2 rounded-xl flex items-center gap-2 border border-gray-100">
                                     <span class="text-sm font-medium text-gray-700">${dish}</span>
-
-                                    <button onclick="app.${toggleFunc}('${dish}')" class="text-gray-300 hover:text-red-500"><i class="fa-solid fa-circle-xmark"></i></button>
-
+                                    <button onclick="app.${toggleFn}('${dish}')" class="text-gray-300 hover:text-red-500 transition-colors">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                    </button>
                                 </div>
-
-                            `).join('') : `<p class="text-xs text-gray-400 italic">등록된 음식이 없습니다.</p>`}
-
+                            `).join('') : '<p class="text-[11px] text-gray-300 italic">등록된 메뉴가 없습니다.</p>'}
                         </div>
-
                     </div>
-
                 `;
-
-
-
-                html += renderChipList('내가 좋아하는 반찬', state.favDishes, 'text-blue-500', 'fa-solid fa-star', 'toggleFavDish');
-
-                html += renderChipList('내가 싫어하는 반찬', state.badDishes, 'text-red-500', 'fa-solid fa-circle-minus', 'toggleBadDish');
-
-
-
-                // 즐겨찾는 학교
-
-                html += `<div class="pt-4 border-t mt-4">
-
-                    <h4 class="text-xs font-bold text-gray-400 mb-3 uppercase">즐겨찾는 학교</h4>
-
-                    ${state.favorites.length ? state.favorites.map(s => `
-
-                        <div class="bg-white p-4 rounded-2xl border mb-2 flex justify-between items-center shadow-sm">
-
-                            <div onclick="app.setSchool(${JSON.stringify(s).replace(/"/g, '&quot;')})" class="cursor-pointer">
-
-                                <p class="font-bold text-gray-800 text-sm">${s.SCHUL_NM}</p>
-
-                                <p class="text-[10px] text-gray-400">${s.ORG_RDNMA}</p>
-
-                            </div>
-
-                            <button onclick="app.removeSchoolFavorite('${s.SD_SCHUL_CODE}')" class="text-red-300"><i class="fa-solid fa-trash-can"></i></button>
-
-                        </div>
-
-                    `).join('') : `<p class="text-xs text-gray-400 italic">등록된 학교가 없습니다.</p>`}
-
-                </div>`;
-
-
-
+                
+                let html = renderGroup('내가 좋아하는 반찬', state.favDishes, 'fa-solid fa-star text-yellow-400', 'text-yellow-600', 'toggleFavDish');
+                html += renderGroup('기피하는 반찬', state.badDishes, 'fa-solid fa-circle-minus text-red-400', 'text-red-600', 'toggleBadDish');
                 list.innerHTML = html;
-
             }
-
         };
-
-
 
         const app = {
+            init() {
+                this.renderAllergyGuide();
+                ui.showSection(state.currentSchool ? 'meal' : 'setup');
+            },
+
+            renderAllergyGuide() {
+                document.getElementById('allergy-guide-grid').innerHTML = Object.entries(allergyMap).map(([n, v]) => `
+                    <div class="flex items-center gap-1.5 pb-1">
+                        <span class="text-red-500 font-bold w-4 text-[9px]">${n}.</span>
+                        <span class="text-gray-500">${v}</span>
+                    </div>
+                `).join('');
+            },
 
             async searchSchool() {
-
                 const query = document.getElementById('school-search-input').value.trim();
-
                 if (query.length < 2) return;
-
                 ui.toggleLoader(true);
-
                 try {
-
                     const res = await fetch(`https://open.neis.go.kr/hub/schoolInfo?Type=json&SCHUL_NM=${encodeURIComponent(query)}`);
-
                     const data = await res.json();
-
                     const container = document.getElementById('school-search-results');
-
                     container.innerHTML = '';
-
                     if (data.schoolInfo) {
-
                         data.schoolInfo[1].row.forEach(school => {
-
                             const div = document.createElement('div');
-
-                            div.className = "bg-white p-4 rounded-2xl border border-gray-100 shadow-sm active:scale-95 transition-all cursor-pointer";
-
-                            div.innerHTML = `<p class="font-bold text-gray-800">${school.SCHUL_NM}</p><p class="text-[10px] text-gray-400">${school.ORG_RDNMA}</p>`;
-
-                            div.onclick = () => this.setSchool(school);
-
+                            div.className = "bg-white p-5 rounded-[1.5rem] border border-gray-100 shadow-sm active:bg-blue-50 transition-all cursor-pointer";
+                            div.innerHTML = `
+                                <p class="font-bold text-gray-800 text-sm">${school.SCHUL_NM}</p>
+                                <p class="text-[10px] text-gray-400 mt-1">${school.ORG_RDNMA}</p>
+                            `;
+                            div.onclick = () => {
+                                state.currentSchool = school;
+                                localStorage.setItem('selectedSchool', JSON.stringify(school));
+                                ui.showSection('meal');
+                            };
                             container.appendChild(div);
-
                         });
-
-                    } else {
-
-                        container.innerHTML = `<p class="text-center text-gray-400 py-6 text-sm">학교를 찾을 수 없습니다.</p>`;
-
                     }
-
                 } catch (e) { console.error(e); }
-
                 ui.toggleLoader(false);
-
             },
-
-
-
-            setSchool(school) {
-
-                state.currentSchool = school;
-
-                localStorage.setItem('selectedSchool', JSON.stringify(school));
-
-                ui.showSection('meal');
-
-            },
-
-
 
             initMealView() {
-
+                if (!state.currentSchool) return;
                 document.getElementById('display-school-name').textContent = state.currentSchool.SCHUL_NM;
-
                 document.getElementById('display-school-location').textContent = state.currentSchool.ATPT_OFCDC_SC_NM;
-
-                const picker = document.getElementById('meal-date-picker');
-
-                picker.value = `${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`;
-
-                
-
-                const isFav = state.favorites.some(f => f.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
-
+                document.getElementById('meal-date-picker').value = `${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`;
+                const isFav = state.favoriteSchools.some(f => f.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
                 document.getElementById('fav-toggle-btn').innerHTML = isFav ? '<i class="fa-solid fa-star text-yellow-400"></i>' : '<i class="fa-regular fa-star text-white"></i>';
-
-                
-
                 this.fetchMeal();
-
             },
-
-
 
             async fetchMeal() {
-
                 ui.toggleLoader(true);
-
                 const container = document.getElementById('meal-content');
-
                 try {
-
                     const res = await fetch(`https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&ATPT_OFCDC_SC_CODE=${state.currentSchool.ATPT_OFCDC_SC_CODE}&SD_SCHUL_CODE=${state.currentSchool.SD_SCHUL_CODE}&MLSV_YMD=${state.selectedDate}`);
-
                     const data = await res.json();
-
                     container.innerHTML = '';
-
                     
-
                     if (data.mealServiceDietInfo) {
-
                         data.mealServiceDietInfo[1].row.forEach(meal => {
-
-                            const menuItems = meal.DDISH_NM.split('<br/>').map(item => {
-
-                                const allergyMatch = item.match(/\(([^)]+)\)/);
-
-                                return { 
-
-                                    name: item.replace(/\(([^)]+)\)/, '').trim(), 
-
-                                    nums: allergyMatch ? allergyMatch[1].split('.') : [] 
-
-                                };
-
+                            const voteKey = `vote_${state.currentSchool.SD_SCHUL_CODE}_${state.selectedDate}_${meal.MMEAL_SC_NM}`;
+                            const items = meal.DDISH_NM.split('<br/>').map(s => {
+                                const m = s.match(/\(([^)]+)\)/);
+                                return { name: s.replace(/\([^)]+\)/g, '').trim(), allergy: m ? m[1].split('.') : [] };
                             });
 
-
-
-                            const hasFav = menuItems.some(i => state.favDishes.includes(i.name));
-
-                            const hasBad = menuItems.some(i => state.badDishes.includes(i.name));
-
-
+                            const hasFav = items.some(i => state.favDishes.includes(i.name));
+                            const hasBad = items.some(i => state.badDishes.includes(i.name));
 
                             const card = document.createElement('div');
-
-                            card.className = `rounded-2xl p-5 shadow-sm border transition-all ${hasFav ? 'bg-blue-50 border-blue-200' : hasBad ? 'bg-red-50 border-red-100' : 'bg-white border-gray-100'}`;
-
+                            card.className = `rounded-[2.5rem] p-7 border transition-all duration-500 shadow-sm ${hasFav ? 'bg-blue-50 border-blue-200' : hasBad ? 'bg-red-50 border-red-100' : 'bg-white border-gray-100'}`;
                             card.innerHTML = `
-
-                                <div class="flex justify-between items-start mb-4">
-
+                                <div class="flex justify-between items-start mb-5">
                                     <div>
-
-                                        <span class="${hasFav ? 'bg-blue-500' : hasBad ? 'bg-red-500' : 'bg-gray-700'} text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">${meal.MMEAL_SC_NM}</span>
-
-                                        ${hasFav ? '<p class="text-[10px] font-bold text-blue-500 mt-1">✨ 최애 반찬 포함!</p>' : ''}
-
-                                        ${hasBad ? '<p class="text-[10px] font-bold text-red-500 mt-1">⚠️ 기피 반찬 주의</p>' : ''}
-
+                                        <span class="px-4 py-1.5 rounded-full text-[11px] font-bold text-white ${hasFav ? 'bg-blue-600' : hasBad ? 'bg-red-500' : 'bg-gray-800'}">
+                                            ${hasFav ? '최애 메뉴가 있어요!' : hasBad ? '⚠️ 기피 메뉴 주의' : meal.MMEAL_SC_NM}
+                                        </span>
+                                        <p class="text-[10px] text-gray-400 mt-2 font-medium tracking-wide">${meal.CAL_INFO}</p>
                                     </div>
-
-                                    <span class="text-[10px] text-gray-400">${meal.CAL_INFO}</span>
-
+                                    <div class="text-right w-1/2">
+                                        <div class="flex justify-end gap-3 mb-2" id="vote-btns-${voteKey.replace(/\s/g, '')}"></div>
+                                        <div class="h-1 w-full bg-gray-100 rounded-full flex overflow-hidden" id="vote-bar-${voteKey.replace(/\s/g, '')}"></div>
+                                        <p class="text-[8px] text-gray-300 mt-1 uppercase tracking-widest font-bold" id="vote-count-${voteKey.replace(/\s/g, '')}">0 Votes</p>
+                                    </div>
                                 </div>
-
-                                <ul class="space-y-3">
-
-                                    ${menuItems.map(item => {
-
-                                        const isFav = state.favDishes.includes(item.name);
-
-                                        const isBad = state.badDishes.includes(item.name);
-
-                                        return `
-
-                                        <li class="flex items-center justify-between">
-
-                                            <div class="flex-1">
-
-                                                <span class="text-sm font-medium ${isFav ? 'text-blue-700 font-bold' : isBad ? 'text-red-400 line-through' : 'text-gray-700'}">${item.name}</span>
-
-                                                <span class="inline-block">${item.nums.map(n => `<span class="allergy-badge">${n}</span>`).join('')}</span>
-
-                                            </div>
-
+                                <ul class="space-y-3.5 mb-6">
+                                    ${items.map(i => `
+                                        <li class="flex items-center justify-between group">
+                                            <span class="text-[15px] ${state.favDishes.includes(i.name) ? 'text-blue-600 font-bold' : state.badDishes.includes(i.name) ? 'text-gray-300 line-through' : 'text-gray-700'}">
+                                                ${i.name}${i.allergy.map(n => `<span class="allergy-badge">${n}</span>`).join('')}
+                                            </span>
                                             <div class="flex gap-2">
-
-                                                <button onclick="app.toggleFavDish('${item.name}')" class="p-1"><i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-star ${isFav ? 'text-yellow-400' : 'text-gray-200'}"></i></button>
-
-                                                <button onclick="app.toggleBadDish('${item.name}')" class="p-1"><i class="${isBad ? 'fa-solid' : 'fa-circle-minus'} ${isBad ? 'text-red-400' : 'text-gray-200'}"></i></button>
-
+                                                <button onclick="app.toggleFavDish('${i.name}')" class="p-1 transition-colors ${state.favDishes.includes(i.name) ? 'text-yellow-400' : 'text-gray-200 hover:text-yellow-200'}">
+                                                    <i class="fa-solid fa-star"></i>
+                                                </button>
+                                                <button onclick="app.toggleBadDish('${i.name}')" class="p-1 transition-colors ${state.badDishes.includes(i.name) ? 'text-red-400' : 'text-gray-200 hover:text-red-200'}">
+                                                    <i class="fa-solid fa-circle-minus"></i>
+                                                </button>
                                             </div>
-
-                                        </li>`;
-
-                                    }).join('')}
-
+                                        </li>
+                                    `).join('')}
                                 </ul>
-
-                                <div class="mt-4 pt-4 border-t border-gray-100">
-
-                                    <p class="text-[9px] text-gray-400 font-bold mb-1 uppercase tracking-tighter">이 식단의 유발 물질</p>
-
-                                    <div class="flex flex-wrap gap-1">
-
-                                        ${[...new Set(menuItems.flatMap(i => i.nums))].sort((a,b)=>a-b).map(n => `<span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">${n}.${allergyMap[n]}</span>`).join('') || '<span class="text-[9px] text-gray-300">정보 없음</span>'}
-
-                                    </div>
-
+                                <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                                    <span class="text-[9px] text-gray-400 w-full mb-1">포함된 성분 요약:</span>
+                                    ${[...new Set(items.flatMap(i => i.allergy))].sort((a,b)=>a-b).map(n => `<span class="text-[9px] bg-gray-50 text-gray-500 px-2.5 py-1 rounded-lg border border-gray-100">${n}.${allergyMap[n]}</span>`).join('')}
                                 </div>
-
                             `;
-
                             container.appendChild(card);
-
+                            this.renderVotes(voteKey);
                         });
-
                     } else {
-
-                        const targetMonth = parseInt(state.selectedDate.substring(4,6));
-
-                        const currentMonth = new Date().getMonth() + 1;
-
+                        const m = parseInt(state.selectedDate.substring(4,6));
                         container.innerHTML = `
-
-                            <div class="bg-white rounded-3xl p-10 text-center border-2 border-dashed border-gray-100">
-
-                                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
-
-                                    <i class="fa-solid fa-utensils text-2xl"></i>
-
-                                </div>
-
-                                <h3 class="text-gray-800 font-bold mb-1">급식 정보가 없어요</h3>
-
-                                <p class="text-gray-400 text-xs leading-relaxed">
-
-                                    ${targetMonth > currentMonth ? `6월 식단은 보통 5월 말에 학교에서 등록합니다.<br>조금만 더 기다려주세요!` : '오늘은 급식 정보가 등록되지 않은 날입니다.'}
-
-                                </p>
-
+                            <div class="bg-white p-12 rounded-[2.5rem] text-center border-2 border-dashed border-gray-100">
+                                <i class="fa-solid fa-bowl-food text-gray-100 text-5xl mb-4"></i>
+                                <p class="text-gray-400 text-sm font-medium leading-relaxed">아직 식단이 등록되지 않았습니다.<br>
+                                <span class="text-[10px] mt-2 block text-gray-300">${m}월 식단은 보통 ${m-1}월 말에 업데이트됩니다.</span></p>
                             </div>`;
-
                     }
-
                 } catch (e) { console.error(e); }
-
                 ui.toggleLoader(false);
-
             },
 
+            renderVotes(key) {
+                const idKey = key.replace(/\s/g, '');
+                const voteData = state.votes[key] || { up: 0, down: 0, myVote: null };
+                const total = voteData.up + voteData.down;
+                const upPct = total === 0 ? 0 : Math.round((voteData.up / total) * 100);
+                const downPct = total === 0 ? 0 : 100 - upPct;
 
+                const btnContainer = document.getElementById(`vote-btns-${idKey}`);
+                const barContainer = document.getElementById(`vote-bar-${idKey}`);
+                const countText = document.getElementById(`vote-count-${idKey}`);
 
-            handleDateChange(val) { state.selectedDate = val.replace(/-/g, ''); this.fetchMeal(); },
+                btnContainer.innerHTML = `
+                    <button onclick="app.castVote('${key}', 'up')" class="vote-btn flex items-center gap-1.5 ${voteData.myVote === 'up' ? 'text-blue-500' : 'text-gray-300'}">
+                        <i class="fa-solid fa-thumbs-up text-xs"></i><span class="text-[10px] font-black">${upPct}%</span>
+                    </button>
+                    <button onclick="app.castVote('${key}', 'down')" class="vote-btn flex items-center gap-1.5 ${voteData.myVote === 'down' ? 'text-red-500' : 'text-gray-300'}">
+                        <i class="fa-solid fa-thumbs-down text-xs"></i><span class="text-[10px] font-black">${downPct}%</span>
+                    </button>
+                `;
 
-            offsetDate(days) {
+                barContainer.innerHTML = `
+                    <div class="bg-blue-400 h-full progress-bar-transition" style="width: ${upPct}%"></div>
+                    <div class="bg-red-400 h-full progress-bar-transition" style="width: ${downPct}%"></div>
+                `;
+                
+                countText.textContent = `${total} People Voted`;
+            },
 
-                const current = new Date(`${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`);
+            castVote(key, type) {
+                if (!state.votes[key]) state.votes[key] = { up: 0, down: 0, myVote: null };
+                const v = state.votes[key];
 
-                current.setDate(current.getDate() + days);
+                if (v.myVote === type) {
+                    v[type]--;
+                    v.myVote = null;
+                } else {
+                    if (v.myVote) v[v.myVote]--;
+                    v[type]++;
+                    v.myVote = type;
+                }
 
-                state.selectedDate = current.toISOString().split('T')[0].replace(/-/g, '');
+                localStorage.setItem('mealVotes', JSON.stringify(state.votes));
+                this.renderVotes(key);
+            },
 
+            handleDateChange(v) { state.selectedDate = v.replace(/-/g, ''); this.fetchMeal(); },
+            offsetDate(d) {
+                const date = new Date(`${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`);
+                date.setDate(date.getDate() + d);
+                state.selectedDate = date.toISOString().split('T')[0].replace(/-/g, '');
                 this.initMealView();
-
             },
-
-            toggleFavDish(name) {
-
-                const idx = state.favDishes.indexOf(name);
-
-                if (idx === -1) { state.favDishes.push(name); state.badDishes = state.badDishes.filter(d => d !== name); }
-
-                else state.favDishes.splice(idx, 1);
-
+            toggleFavDish(n) {
+                if (state.favDishes.includes(n)) state.favDishes = state.favDishes.filter(x => x !== n);
+                else { state.favDishes.push(n); state.badDishes = state.badDishes.filter(x => x !== n); }
                 this.save();
-
             },
-
-            toggleBadDish(name) {
-
-                const idx = state.badDishes.indexOf(name);
-
-                if (idx === -1) { state.badDishes.push(name); state.favDishes = state.favDishes.filter(d => d !== name); }
-
-                else state.badDishes.splice(idx, 1);
-
+            toggleBadDish(n) {
+                if (state.badDishes.includes(n)) state.badDishes = state.badDishes.filter(x => x !== n);
+                else { state.badDishes.push(n); state.favDishes = state.favDishes.filter(x => x !== n); }
                 this.save();
-
             },
-
             toggleFavoriteSchool() {
-
                 if (!state.currentSchool) return;
-
-                const idx = state.favorites.findIndex(f => f.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
-
-                if (idx === -1) state.favorites.push(state.currentSchool);
-
-                else state.favorites.splice(idx, 1);
-
-                localStorage.setItem('favoriteSchools', JSON.stringify(state.favorites));
-
+                const idx = state.favoriteSchools.findIndex(s => s.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
+                if (idx > -1) state.favoriteSchools.splice(idx, 1);
+                else state.favoriteSchools.push(state.currentSchool);
+                localStorage.setItem('favoriteSchools', JSON.stringify(state.favoriteSchools));
                 this.initMealView();
-
             },
-
-            removeSchoolFavorite(code) {
-
-                state.favorites = state.favorites.filter(f => f.SD_SCHUL_CODE !== code);
-
-                localStorage.setItem('favoriteSchools', JSON.stringify(state.favorites));
-
-                ui.renderFavorites();
-
-            },
-
             save() {
-
                 localStorage.setItem('favDishes', JSON.stringify(state.favDishes));
-
                 localStorage.setItem('badDishes', JSON.stringify(state.badDishes));
-
                 this.fetchMeal();
-
-                if (document.getElementById('favorites-section').classList.contains('hidden') === false) ui.renderFavorites();
-
+                if (!document.getElementById('favorites-section').classList.contains('hidden')) ui.renderFavorites();
             }
-
         };
 
-
-
-        window.onload = () => {
-
-            document.getElementById('allergy-guide-grid').innerHTML = Object.entries(allergyMap).map(([n, v]) => `
-
-                <div class="flex items-center gap-1 py-1">
-
-                    <span class="bg-red-50 text-red-500 font-bold w-5 h-5 rounded flex items-center justify-center border border-red-100">${n}</span>
-
-                    <span class="text-gray-600">${v}</span>
-
-                </div>
-
-            `).join('');
-
-            ui.showSection(state.currentSchool ? 'meal' : 'setup');
-
-        };
-
-        document.getElementById('school-search-input').onkeypress = e => e.key === 'Enter' && app.searchSchool();
-
+        window.onload = () => app.init();
     </script>
-
 </body>
-
 </html>
