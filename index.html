@@ -1,415 +1,737 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+
+<html lang="ko">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #626262; -webkit-text-stroke: #626262}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #626262; -webkit-text-stroke: #fb0007}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #093c94; -webkit-text-stroke: #093c94}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #626262; -webkit-text-stroke: #093c94}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #626262; -webkit-text-stroke: #626262; min-height: 16.0px}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #18702b; -webkit-text-stroke: #18702b}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #626262; -webkit-text-stroke: #18702b}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #626262; background-color: #ecf1f7; -webkit-text-stroke: 0px #626262}
-    span.s5 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s6 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s7 {font-kerning: none; color: #626262; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s8 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s9 {font-kerning: none; color: #093c94; background-color: #ecf1f7; -webkit-text-stroke: 0px #093c94}
-    span.s10 {font-kerning: none; background-color: #ecf1f7; -webkit-text-stroke: 0px #626262}
-    span.s11 {font-kerning: none; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s12 {font-kerning: none; color: #fb0007; background-color: #ecf1f7}
-    span.s13 {font-kerning: none; color: #137646; background-color: #ecf1f7; -webkit-text-stroke: 0px #137646}
-    span.s14 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
-    span.s15 {font-kerning: none; color: #093c94; background-color: #ecf1f7}
-    span.s16 {font-kerning: none}
-    span.s17 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
-    span.s18 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
-    span.s19 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s20 {font-kerning: none; color: #18702b; background-color: #ecf1f7}
-  </style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>오늘의 급식 - 취향 맞춤 알리미</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; -webkit-tap-highlight-color: transparent; }
+
+        .glass-morphism { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+        .loader { border-top-color: #3b82f6; animation: spinner 0.6s linear infinite; }
+
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .allergy-badge { 
+
+            font-size: 0.7rem; padding: 2px 5px; border-radius: 6px; 
+
+            background: #fee2e2; color: #ef4444; margin-left: 3px;
+
+            font-weight: bold; border: 1px solid #fecaca; display: inline-flex; align-items: center;
+
+        }
+
+    </style>
+
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"ko"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">오늘의 급식 - 취향 맞춤 알리미</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">font-family:</span><span class="s4"> </span><span class="s8">'Noto Sans KR'</span><span class="s7">,</span><span class="s4"> </span><span class="s9">sans-serif</span><span class="s7">;</span><span class="s4"> </span><span class="s1">background-color:</span><span class="s4"> </span><span class="s9">#f8fafc</span><span class="s7">;</span><span class="s4"> </span><span class="s1">-webkit-tap-highlight-color:</span><span class="s4"> </span><span class="s9">transparent</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p6"><span class="s10"><span class="Apple-converted-space">        </span></span><span class="s6">.glass-morphism</span><span class="s10"> </span><span class="s11">{</span><span class="s10"> </span><span class="s12">background:</span><span class="s10"> </span><span class="s9">rgba(</span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">0.9</span><span class="s9">)</span><span class="s11">;</span><span class="s10"> </span><span class="s12">backdrop-filter:</span><span class="s10"> </span><span class="s9">blur(</span><span class="s13">10px</span><span class="s9">)</span><span class="s11">;</span><span class="s10"> </span><span class="s12">border:</span><span class="s10"> </span><span class="s13">1px</span><span class="s10"> </span><span class="s9">solid</span><span class="s10"> </span><span class="s9">rgba(</span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">255</span><span class="s11">,</span><span class="s10"> </span><span class="s13">0.2</span><span class="s9">)</span><span class="s11">;</span><span class="s10"> </span><span class="s11">}</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.loader</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s2">border-top-color:</span><span class="s4"> </span><span class="s1">#3b82f6</span><span class="s7">;</span><span class="s4"> </span><span class="s2">animation:</span><span class="s4"> </span><span class="s1">spinner</span><span class="s4"> </span><span class="s13">0.6s</span><span class="s4"> </span><span class="s1">linear</span><span class="s4"> </span><span class="s1">infinite</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p8"><span class="s10"><span class="Apple-converted-space">        </span></span><span class="s14">@keyframes</span><span class="s10"> </span><span class="s15">spinner</span><span class="s10"> </span><span class="s11">{</span><span class="s10"> </span><span class="s13">0%</span><span class="s10"> </span><span class="s11">{</span><span class="s10"> </span><span class="s2">transform:</span><span class="s10"> </span><span class="s15">rotate(</span><span class="s13">0deg</span><span class="s15">)</span><span class="s11">;</span><span class="s10"> </span><span class="s11">}</span><span class="s10"> </span><span class="s13">100%</span><span class="s10"> </span><span class="s11">{</span><span class="s10"> </span><span class="s2">transform:</span><span class="s10"> </span><span class="s15">rotate(</span><span class="s13">360deg</span><span class="s15">)</span><span class="s11">;</span><span class="s10"> </span><span class="s11">}</span><span class="s10"> </span><span class="s11">}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.allergy-badge</span><span class="s4"> </span><span class="s7">{</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">font-size:</span><span class="s4"> </span><span class="s13">0.7rem</span><span class="s7">;</span><span class="s4"> </span><span class="s1">padding:</span><span class="s4"> </span><span class="s13">2px</span><span class="s4"> </span><span class="s13">5px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s13">6px</span><span class="s7">;</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">background:</span><span class="s4"> </span><span class="s9">#fee2e2</span><span class="s7">;</span><span class="s4"> </span><span class="s1">color:</span><span class="s4"> </span><span class="s9">#ef4444</span><span class="s7">;</span><span class="s4"> </span><span class="s1">margin-left:</span><span class="s4"> </span><span class="s13">3px</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">font-weight:</span><span class="s4"> </span><span class="s9">bold</span><span class="s7">;</span><span class="s4"> </span><span class="s1">border:</span><span class="s4"> </span><span class="s13">1px</span><span class="s4"> </span><span class="s9">solid</span><span class="s4"> </span><span class="s9">#fecaca</span><span class="s7">;</span><span class="s4"> </span><span class="s1">display:</span><span class="s4"> </span><span class="s9">inline-flex</span><span class="s7">;</span><span class="s4"> </span><span class="s1">align-items:</span><span class="s4"> </span><span class="s9">center</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-md mx-auto min-h-screen shadow-xl bg-gray-50 pb-20"</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">header</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"sticky top-0 z-50 glass-morphism px-4 py-4 flex justify-between items-center shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold text-blue-600"</span><span class="s3">&gt;&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-utensils mr-2"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span><span class="s4">급식 알리미</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">main</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pb-32"</span><span class="s3">&gt;</span></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- School Setup Section --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"setup-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-6 space-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center py-8"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-school text-3xl text-blue-500"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-bold text-gray-800"</span><span class="s3">&gt;</span><span class="s4">학교를 검색하세요</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-gray-500 mt-2 text-sm"</span><span class="s3">&gt;</span><span class="s1">급식 정보를 가져올 학교를 지정합니다.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"relative"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"school-search-input"</span><span class="s4"> </span><span class="s2">placeholder</span><span class="s3">=</span><span class="s1">"학교 이름 입력 (예: 서울고)"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full p-4 pr-12 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"app.searchSchool()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute right-4 top-1/2 -translate-y-1/2 text-blue-500"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-magnifying-glass text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"school-search-results"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-2 max-h-64 overflow-y-auto"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Meal Display Section --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"meal-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden p-4 space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Current School Info --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"current-school-card"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-5 text-white shadow-lg flex justify-between items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"display-school-location"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-blue-100 text-[10px] font-medium uppercase"</span><span class="s3">&gt;</span><span class="s4">교육청</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"display-school-name"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold"</span><span class="s3">&gt;</span><span class="s4">학교명</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"fav-toggle-btn"</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"app.toggleFavoriteSchool()"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white/20 p-2 rounded-xl backdrop-blur-md"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-regular fa-star text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Date Picker --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-calendar-day text-blue-500 text-lg"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"date"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"meal-date-picker"</span><span class="s4"> </span><span class="s2">onchange</span><span class="s3">=</span><span class="s1">"app.handleDateChange(this.value)"</span><span class="s4"><span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-bold text-gray-700 focus:outline-none bg-transparent cursor-pointer"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"app.offsetDate(-1)"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-chevron-left text-xs"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"app.offsetDate(1)"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-chevron-right text-xs"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"meal-content"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Allergy Guide (Always Visible) --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-8 bg-white rounded-2xl p-5 border border-gray-200 shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-2 mb-4 border-b pb-2"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-circle-exclamation text-red-500"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-bold text-gray-800 text-sm"</span><span class="s3">&gt;</span><span class="s1">알레르기 유발 물질 안내</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"allergy-guide-grid"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-3 gap-2 text-[11px]"</span><span class="s3">&gt;</span></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- JS fills this --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-[10px] text-gray-400 mt-4 leading-tight text-center"</span><span class="s3">&gt;</span><span class="s4">* 학교 사정에 따라 식단이 변경될 수 있습니다.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Favorites Section --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"favorites-section"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden p-6 space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold text-gray-800 mb-4"</span><span class="s3">&gt;</span><span class="s4">취향 관리</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"favorites-list"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-6"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p10"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Navigation --&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed bottom-0 left-0 right-0 max-w-md mx-auto glass-morphism border-t border-gray-100 px-6 py-3 flex justify-around items-center rounded-t-3xl z-50"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"ui.showSection('meal')"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"nav-meal"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col items-center gap-1 transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-calendar-days text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-[10px]"</span><span class="s3">&gt;</span><span class="s1">급식 정보</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"ui.showSection('setup')"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"nav-setup"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col items-center gap-1 transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-magnifying-glass text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-[10px]"</span><span class="s3">&gt;</span><span class="s1">학교 찾기</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"ui.showSection('favorites')"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"nav-fav"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col items-center gap-1 transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-heart text-xl"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-[10px]"</span><span class="s3">&gt;</span><span class="s1">취향/관리</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"global-loader"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed inset-0 bg-white/80 z-[100] hidden flex flex-col items-center justify-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-blue-600 font-medium text-sm"</span><span class="s3">&gt;</span><span class="s4">급식 정보를 불러오는 중...</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s14">const</span><span class="s1"> allergyMap </span><span class="s11">=</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">"1"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"난류"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"2"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"우유"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"3"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"메밀"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"4"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"땅콩"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"5"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"대두"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"6"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"밀"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"7"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"고등어"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"8"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"게"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"9"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"새우"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"10"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"돼지고기"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"11"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"복숭아"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"12"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"토마토"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"13"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"아황산류"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"14"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"호두"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"15"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"닭고기"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"16"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"쇠고기"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"17"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"오징어"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"18"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"조개류"</span><span class="s7">,</span><span class="s4"> </span><span class="s1">"19"</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"잣"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">};</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s14">const</span><span class="s1"> state </span><span class="s11">=</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>currentSchool</span><span class="s11">:</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">parse</span><span class="s11">(</span><span class="s1">localStorage</span><span class="s11">.</span><span class="s1">getItem</span><span class="s11">(</span><span class="s8">'selectedSchool'</span><span class="s11">))</span><span class="s1"> </span><span class="s11">||</span><span class="s1"> </span><span class="s14">null</span><span class="s11">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>favorites</span><span class="s11">:</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">parse</span><span class="s11">(</span><span class="s1">localStorage</span><span class="s11">.</span><span class="s1">getItem</span><span class="s11">(</span><span class="s8">'favoriteSchools'</span><span class="s11">))</span><span class="s1"> </span><span class="s11">||</span><span class="s1"> </span><span class="s11">[],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>favDishes</span><span class="s11">:</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">parse</span><span class="s11">(</span><span class="s1">localStorage</span><span class="s11">.</span><span class="s1">getItem</span><span class="s11">(</span><span class="s8">'favDishes'</span><span class="s11">))</span><span class="s1"> </span><span class="s11">||</span><span class="s1"> </span><span class="s11">[],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>badDishes</span><span class="s11">:</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">parse</span><span class="s11">(</span><span class="s1">localStorage</span><span class="s11">.</span><span class="s1">getItem</span><span class="s11">(</span><span class="s8">'badDishes'</span><span class="s11">))</span><span class="s1"> </span><span class="s11">||</span><span class="s1"> </span><span class="s11">[],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>selectedDate</span><span class="s11">:</span><span class="s1"> </span><span class="s14">new</span><span class="s1"> </span><span class="s17">Date</span><span class="s11">().</span><span class="s1">toISOString</span><span class="s11">().</span><span class="s1">split</span><span class="s11">(</span><span class="s8">'T'</span><span class="s11">)[</span><span class="s18">0</span><span class="s11">].</span><span class="s1">replace</span><span class="s11">(</span><span class="s6">/-/</span><span class="s14">g</span><span class="s11">,</span><span class="s1"> </span><span class="s8">''</span><span class="s11">)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">};</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s14">const</span><span class="s1"> ui </span><span class="s11">=</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>showSection</span><span class="s11">(</span><span class="s1">section</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s11">.</span><span class="s1">querySelectorAll</span><span class="s11">(</span><span class="s8">'main &gt; section'</span><span class="s11">).</span><span class="s1">forEach</span><span class="s11">(</span><span class="s1">s </span><span class="s11">=&gt;</span><span class="s1"> s</span><span class="s11">.</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">add</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s11">.</span><span class="s1">querySelectorAll</span><span class="s11">(</span><span class="s8">'nav button'</span><span class="s11">).</span><span class="s1">forEach</span><span class="s11">(</span><span class="s1">b </span><span class="s11">=&gt;</span><span class="s1"> b</span><span class="s11">.</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">remove</span><span class="s11">(</span><span class="s8">'text-blue-600'</span><span class="s11">,</span><span class="s1"> </span><span class="s8">'scale-110'</span><span class="s11">));</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">section </span><span class="s11">===</span><span class="s1"> </span><span class="s8">'meal'</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(!</span><span class="s1">state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">)</span><span class="s1"> </span><span class="s14">return</span><span class="s1"> </span><span class="s14">this</span><span class="s11">.</span><span class="s1">showSection</span><span class="s11">(</span><span class="s8">'setup'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'meal-section'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">remove</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'nav-meal'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">add</span><span class="s11">(</span><span class="s8">'text-blue-600'</span><span class="s11">,</span><span class="s1"> </span><span class="s8">'scale-110'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>app</span><span class="s11">.</span><span class="s1">initMealView</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">else</span><span class="s1"> </span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">section </span><span class="s11">===</span><span class="s1"> </span><span class="s8">'setup'</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'setup-section'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">remove</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'nav-setup'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">add</span><span class="s11">(</span><span class="s8">'text-blue-600'</span><span class="s11">,</span><span class="s1"> </span><span class="s8">'scale-110'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">else</span><span class="s1"> </span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">section </span><span class="s11">===</span><span class="s1"> </span><span class="s8">'favorites'</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'favorites-section'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">remove</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'nav-fav'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">add</span><span class="s11">(</span><span class="s8">'text-blue-600'</span><span class="s11">,</span><span class="s1"> </span><span class="s8">'scale-110'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">renderFavorites</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>toggleLoader</span><span class="s11">(</span><span class="s1">show</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'global-loader'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">toggle</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">,</span><span class="s1"> </span><span class="s11">!</span><span class="s1">show</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderFavorites</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> list </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'favorites-list'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">let</span><span class="s1"> html </span><span class="s11">=</span><span class="s1"> </span><span class="s8">''</span><span class="s11">;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s19">// 선호/기피 음식 관리</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> renderChipList </span><span class="s11">=</span><span class="s1"> </span><span class="s11">(</span><span class="s1">title</span><span class="s11">,</span><span class="s1"> items</span><span class="s11">,</span><span class="s1"> colorClass</span><span class="s11">,</span><span class="s1"> icon</span><span class="s11">,</span><span class="s1"> toggleFunc</span><span class="s11">)</span><span class="s1"> </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xs font-bold </span><span class="s7">${</span><span class="s4">colorClass</span><span class="s7">}</span><span class="s1"> mb-3 flex items-center gap-1"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;i class="</span><span class="s7">${</span><span class="s4">icon</span><span class="s7">}</span><span class="s1">"&gt;&lt;/i&gt; </span><span class="s7">${</span><span class="s4">title</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/h4&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap gap-2"&gt;</span></p>
-<p class="p12"><span class="s20"><span class="Apple-converted-space">                            </span></span><span class="s11">${</span><span class="s10">items</span><span class="s11">.</span><span class="s10">length </span><span class="s11">?</span><span class="s10"> items</span><span class="s11">.</span><span class="s10">map</span><span class="s11">(</span><span class="s10">dish </span><span class="s11">=&gt;</span><span class="s10"> </span><span class="s20">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-white border px-3 py-2 rounded-xl flex items-center gap-2 shadow-sm"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-sm font-medium text-gray-700"&gt;</span><span class="s7">${</span><span class="s4">dish</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;button onclick="app.</span><span class="s7">${</span><span class="s4">toggleFunc</span><span class="s7">}</span><span class="s1">('</span><span class="s7">${</span><span class="s4">dish</span><span class="s7">}</span><span class="s1">')" class="text-gray-300 hover:text-red-500"&gt;&lt;i class="fa-solid fa-circle-xmark"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>`</span><span class="s7">).</span><span class="s4">join</span><span class="s7">(</span><span class="s1">''</span><span class="s7">)</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">`&lt;p class="text-xs text-gray-400 italic"&gt;등록된 음식이 없습니다.&lt;/p&gt;`</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                </span>`</span><span class="s7">;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p12"><span class="s10"><span class="Apple-converted-space">                </span>html </span><span class="s11">+=</span><span class="s10"> renderChipList</span><span class="s11">(</span><span class="s20">'내가 좋아하는 반찬'</span><span class="s11">,</span><span class="s10"> state</span><span class="s11">.</span><span class="s10">favDishes</span><span class="s11">,</span><span class="s10"> </span><span class="s20">'text-blue-500'</span><span class="s11">,</span><span class="s10"> </span><span class="s20">'fa-solid fa-star'</span><span class="s11">,</span><span class="s10"> </span><span class="s20">'toggleFavDish'</span><span class="s11">);</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                </span>html </span><span class="s7">+=</span><span class="s4"> renderChipList</span><span class="s7">(</span><span class="s1">'내가 싫어하는 반찬'</span><span class="s7">,</span><span class="s4"> state</span><span class="s7">.</span><span class="s4">badDishes</span><span class="s7">,</span><span class="s4"> </span><span class="s1">'text-red-500'</span><span class="s7">,</span><span class="s4"> </span><span class="s1">'fa-solid fa-circle-minus'</span><span class="s7">,</span><span class="s4"> </span><span class="s1">'toggleBadDish'</span><span class="s7">);</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s19">// 즐겨찾는 학교</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                </span>html </span><span class="s7">+=</span><span class="s4"> </span><span class="s1">`&lt;div class="pt-4 border-t mt-4"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h4 class="text-xs font-bold text-gray-400 mb-3 uppercase"&gt;즐겨찾는 학교&lt;/h4&gt;</span></p>
-<p class="p5"><span class="s8"><span class="Apple-converted-space">                    </span></span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">length </span><span class="s11">?</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">map</span><span class="s11">(</span><span class="s1">s </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white p-4 rounded-2xl border mb-2 flex justify-between items-center shadow-sm"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div onclick="app.setSchool(</span><span class="s7">${</span><span class="s17">JSON</span><span class="s7">.</span><span class="s4">stringify</span><span class="s7">(</span><span class="s4">s</span><span class="s7">).</span><span class="s4">replace</span><span class="s7">(</span><span class="s6">/"/</span><span class="s14">g</span><span class="s7">,</span><span class="s4"> </span><span class="s1">'&amp;quot;'</span><span class="s7">)}</span><span class="s1">)" class="cursor-pointer"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="font-bold text-gray-800 text-sm"&gt;</span><span class="s7">${</span><span class="s4">s</span><span class="s7">.</span><span class="s17">SCHUL_NM</span><span class="s7">}</span><span class="s1">&lt;/p&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-[10px] text-gray-400"&gt;</span><span class="s7">${</span><span class="s4">s</span><span class="s7">.</span><span class="s17">ORG_RDNMA</span><span class="s7">}</span><span class="s1">&lt;/p&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;button onclick="app.removeSchoolFavorite('</span><span class="s7">${</span><span class="s4">s</span><span class="s7">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s7">}</span><span class="s1">')" class="text-red-300"&gt;&lt;i class="fa-solid fa-trash-can"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>`</span><span class="s7">).</span><span class="s4">join</span><span class="s7">(</span><span class="s1">''</span><span class="s7">)</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">`&lt;p class="text-xs text-gray-400 italic"&gt;등록된 학교가 없습니다.&lt;/p&gt;`</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;`</span><span class="s7">;</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>list</span><span class="s11">.</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> html</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">};</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s14">const</span><span class="s1"> app </span><span class="s11">=</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s14">async</span><span class="s1"> searchSchool</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> query </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'school-search-input'</span><span class="s11">).</span><span class="s1">value</span><span class="s11">.</span><span class="s1">trim</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">query</span><span class="s11">.</span><span class="s1">length </span><span class="s11">&lt;</span><span class="s1"> </span><span class="s18">2</span><span class="s11">)</span><span class="s1"> </span><span class="s14">return</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">toggleLoader</span><span class="s11">(</span><span class="s14">true</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">try</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p12"><span class="s10"><span class="Apple-converted-space">                    </span></span><span class="s14">const</span><span class="s10"> res </span><span class="s11">=</span><span class="s10"> </span><span class="s14">await</span><span class="s10"> fetch</span><span class="s11">(</span><span class="s20">`https://open.neis.go.kr/hub/schoolInfo?Type=json&amp;SCHUL_NM=</span><span class="s11">${</span><span class="s10">encodeURIComponent</span><span class="s11">(</span><span class="s10">query</span><span class="s11">)}</span><span class="s20">`</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">const</span><span class="s1"> data </span><span class="s11">=</span><span class="s1"> </span><span class="s14">await</span><span class="s1"> res</span><span class="s11">.</span><span class="s1">json</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">const</span><span class="s1"> container </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'school-search-results'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>container</span><span class="s11">.</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> </span><span class="s8">''</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">data</span><span class="s11">.</span><span class="s1">schoolInfo</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>data</span><span class="s11">.</span><span class="s1">schoolInfo</span><span class="s11">[</span><span class="s18">1</span><span class="s11">].</span><span class="s1">row</span><span class="s11">.</span><span class="s1">forEach</span><span class="s11">(</span><span class="s1">school </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">const</span><span class="s1"> div </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">createElement</span><span class="s11">(</span><span class="s8">'div'</span><span class="s11">);</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                            </span>div</span><span class="s7">.</span><span class="s4">className </span><span class="s7">=</span><span class="s4"> </span><span class="s1">"bg-white p-4 rounded-2xl border border-gray-100 shadow-sm active:scale-95 transition-all cursor-pointer"</span><span class="s7">;</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                            </span>div</span><span class="s7">.</span><span class="s4">innerHTML </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`&lt;p class="font-bold text-gray-800"&gt;</span><span class="s7">${</span><span class="s4">school</span><span class="s7">.</span><span class="s17">SCHUL_NM</span><span class="s7">}</span><span class="s1">&lt;/p&gt;&lt;p class="text-[10px] text-gray-400"&gt;</span><span class="s7">${</span><span class="s4">school</span><span class="s7">.</span><span class="s17">ORG_RDNMA</span><span class="s7">}</span><span class="s1">&lt;/p&gt;`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>div</span><span class="s11">.</span><span class="s1">onclick </span><span class="s11">=</span><span class="s1"> </span><span class="s11">()</span><span class="s1"> </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s14">this</span><span class="s11">.</span><span class="s1">setSchool</span><span class="s11">(</span><span class="s1">school</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>container</span><span class="s11">.</span><span class="s1">appendChild</span><span class="s11">(</span><span class="s1">div</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s11">});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">else</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                        </span>container</span><span class="s7">.</span><span class="s4">innerHTML </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`&lt;p class="text-center text-gray-400 py-6 text-sm"&gt;학교를 찾을 수 없습니다.&lt;/p&gt;`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">catch</span><span class="s1"> </span><span class="s11">(</span><span class="s1">e</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span><span class="s1"> console</span><span class="s11">.</span><span class="s1">error</span><span class="s11">(</span><span class="s1">e</span><span class="s11">);</span><span class="s1"> </span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">toggleLoader</span><span class="s11">(</span><span class="s14">false</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>setSchool</span><span class="s11">(</span><span class="s1">school</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>state</span><span class="s11">.</span><span class="s1">currentSchool </span><span class="s11">=</span><span class="s1"> school</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>localStorage</span><span class="s11">.</span><span class="s1">setItem</span><span class="s11">(</span><span class="s8">'selectedSchool'</span><span class="s11">,</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">stringify</span><span class="s11">(</span><span class="s1">school</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">showSection</span><span class="s11">(</span><span class="s8">'meal'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>initMealView</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'display-school-name'</span><span class="s11">).</span><span class="s1">textContent </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">.</span><span class="s17">SCHUL_NM</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'display-school-location'</span><span class="s11">).</span><span class="s1">textContent </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">.</span><span class="s17">ATPT_OFCDC_SC_NM</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> picker </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'meal-date-picker'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>picker</span><span class="s11">.</span><span class="s1">value </span><span class="s11">=</span><span class="s1"> </span><span class="s8">`</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">0</span><span class="s11">,</span><span class="s18">4</span><span class="s11">)}</span><span class="s8">-</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">4</span><span class="s11">,</span><span class="s18">6</span><span class="s11">)}</span><span class="s8">-</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">6</span><span class="s11">,</span><span class="s18">8</span><span class="s11">)}</span><span class="s8">`</span><span class="s11">;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> isFav </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">some</span><span class="s11">(</span><span class="s1">f </span><span class="s11">=&gt;</span><span class="s1"> f</span><span class="s11">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s1"> </span><span class="s11">===</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s11">);</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                </span>document</span><span class="s7">.</span><span class="s4">getElementById</span><span class="s7">(</span><span class="s1">'fav-toggle-btn'</span><span class="s7">).</span><span class="s4">innerHTML </span><span class="s7">=</span><span class="s4"> isFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'&lt;i class="fa-solid fa-star text-yellow-400"&gt;&lt;/i&gt;'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'&lt;i class="fa-regular fa-star text-white"&gt;&lt;/i&gt;'</span><span class="s7">;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">fetchMeal</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s14">async</span><span class="s1"> fetchMeal</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">toggleLoader</span><span class="s11">(</span><span class="s14">true</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> container </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'meal-content'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">try</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s14">const</span><span class="s4"> res </span><span class="s7">=</span><span class="s4"> </span><span class="s14">await</span><span class="s4"> fetch</span><span class="s7">(</span><span class="s1">`https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&amp;ATPT_OFCDC_SC_CODE=</span><span class="s7">${</span><span class="s4">state</span><span class="s7">.</span><span class="s4">currentSchool</span><span class="s7">.</span><span class="s17">ATPT_OFCDC_SC_CODE</span><span class="s7">}</span><span class="s1">&amp;SD_SCHUL_CODE=</span><span class="s7">${</span><span class="s4">state</span><span class="s7">.</span><span class="s4">currentSchool</span><span class="s7">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s7">}</span><span class="s1">&amp;MLSV_YMD=</span><span class="s7">${</span><span class="s4">state</span><span class="s7">.</span><span class="s4">selectedDate</span><span class="s7">}</span><span class="s1">`</span><span class="s7">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">const</span><span class="s1"> data </span><span class="s11">=</span><span class="s1"> </span><span class="s14">await</span><span class="s1"> res</span><span class="s11">.</span><span class="s1">json</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>container</span><span class="s11">.</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> </span><span class="s8">''</span><span class="s11">;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">data</span><span class="s11">.</span><span class="s1">mealServiceDietInfo</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>data</span><span class="s11">.</span><span class="s1">mealServiceDietInfo</span><span class="s11">[</span><span class="s18">1</span><span class="s11">].</span><span class="s1">row</span><span class="s11">.</span><span class="s1">forEach</span><span class="s11">(</span><span class="s1">meal </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">const</span><span class="s1"> menuItems </span><span class="s11">=</span><span class="s1"> meal</span><span class="s11">.</span><span class="s17">DDISH_NM</span><span class="s11">.</span><span class="s1">split</span><span class="s11">(</span><span class="s8">'&lt;br/&gt;'</span><span class="s11">).</span><span class="s1">map</span><span class="s11">(</span><span class="s1">item </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s14">const</span><span class="s1"> allergyMatch </span><span class="s11">=</span><span class="s1"> item</span><span class="s11">.</span><span class="s1">match</span><span class="s11">(</span><span class="s6">/\(([^)]+)\)/</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s14">return</span><span class="s1"> </span><span class="s11">{</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>name</span><span class="s11">:</span><span class="s1"> item</span><span class="s11">.</span><span class="s1">replace</span><span class="s11">(</span><span class="s6">/\(([^)]+)\)/</span><span class="s11">,</span><span class="s1"> </span><span class="s8">''</span><span class="s11">).</span><span class="s1">trim</span><span class="s11">(),</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span>nums</span><span class="s11">:</span><span class="s1"> allergyMatch </span><span class="s11">?</span><span class="s1"> allergyMatch</span><span class="s11">[</span><span class="s18">1</span><span class="s11">].</span><span class="s1">split</span><span class="s11">(</span><span class="s8">'.'</span><span class="s11">)</span><span class="s1"> </span><span class="s11">:</span><span class="s1"> </span><span class="s11">[]</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s11">};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s11">});</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">const</span><span class="s1"> hasFav </span><span class="s11">=</span><span class="s1"> menuItems</span><span class="s11">.</span><span class="s1">some</span><span class="s11">(</span><span class="s1">i </span><span class="s11">=&gt;</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">includes</span><span class="s11">(</span><span class="s1">i</span><span class="s11">.</span><span class="s1">name</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">const</span><span class="s1"> hasBad </span><span class="s11">=</span><span class="s1"> menuItems</span><span class="s11">.</span><span class="s1">some</span><span class="s11">(</span><span class="s1">i </span><span class="s11">=&gt;</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">includes</span><span class="s11">(</span><span class="s1">i</span><span class="s11">.</span><span class="s1">name</span><span class="s11">));</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">const</span><span class="s1"> card </span><span class="s11">=</span><span class="s1"> document</span><span class="s11">.</span><span class="s1">createElement</span><span class="s11">(</span><span class="s8">'div'</span><span class="s11">);</span></p>
-<p class="p11"><span class="s4"><span class="Apple-converted-space">                            </span>card</span><span class="s7">.</span><span class="s4">className </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`rounded-2xl p-5 shadow-sm border transition-all </span><span class="s7">${</span><span class="s4">hasFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'bg-blue-50 border-blue-200'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> hasBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'bg-red-50 border-red-100'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'bg-white border-gray-100'</span><span class="s7">}</span><span class="s1">`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>card</span><span class="s11">.</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="flex justify-between items-start mb-4"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;span class="</span><span class="s7">${</span><span class="s4">hasFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'bg-blue-500'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> hasBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'bg-red-500'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'bg-gray-700'</span><span class="s7">}</span><span class="s1"> text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase"&gt;</span><span class="s7">${</span><span class="s4">meal</span><span class="s7">.</span><span class="s17">MMEAL_SC_NM</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s7">${</span><span class="s4">hasFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'&lt;p class="text-[10px] font-bold text-blue-500 mt-1"&gt;✨ 최애 반찬 포함!&lt;/p&gt;'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">''</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s7">${</span><span class="s4">hasBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'&lt;p class="text-[10px] font-bold text-red-500 mt-1"&gt;⚠️ 기피 반찬 주의&lt;/p&gt;'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">''</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;span class="text-[10px] text-gray-400"&gt;</span><span class="s7">${</span><span class="s4">meal</span><span class="s7">.</span><span class="s17">CAL_INFO</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;ul class="space-y-3"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s7">${</span><span class="s4">menuItems</span><span class="s7">.</span><span class="s4">map</span><span class="s7">(</span><span class="s4">item </span><span class="s7">=&gt;</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s14">const</span><span class="s1"> isFav </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">includes</span><span class="s11">(</span><span class="s1">item</span><span class="s11">.</span><span class="s1">name</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s14">const</span><span class="s1"> isBad </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">includes</span><span class="s11">(</span><span class="s1">item</span><span class="s11">.</span><span class="s1">name</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s14">return</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;li class="flex items-center justify-between"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div class="flex-1"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;span class="text-sm font-medium </span><span class="s7">${</span><span class="s4">isFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'text-blue-700 font-bold'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> isBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'text-red-400 line-through'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'text-gray-700'</span><span class="s7">}</span><span class="s1">"&gt;</span><span class="s7">${</span><span class="s4">item</span><span class="s7">.</span><span class="s4">name</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;span class="inline-block"&gt;</span><span class="s7">${</span><span class="s4">item</span><span class="s7">.</span><span class="s4">nums</span><span class="s7">.</span><span class="s4">map</span><span class="s7">(</span><span class="s4">n </span><span class="s7">=&gt;</span><span class="s4"> </span><span class="s1">`&lt;span class="allergy-badge"&gt;</span><span class="s7">${</span><span class="s4">n</span><span class="s7">}</span><span class="s1">&lt;/span&gt;`</span><span class="s7">).</span><span class="s4">join</span><span class="s7">(</span><span class="s1">''</span><span class="s7">)}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;div class="flex gap-2"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;button onclick="app.toggleFavDish('</span><span class="s7">${</span><span class="s4">item</span><span class="s7">.</span><span class="s4">name</span><span class="s7">}</span><span class="s1">')" class="p-1"&gt;&lt;i class="</span><span class="s7">${</span><span class="s4">isFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'fa-solid'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'fa-regular'</span><span class="s7">}</span><span class="s1"> fa-star </span><span class="s7">${</span><span class="s4">isFav </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'text-yellow-400'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'text-gray-200'</span><span class="s7">}</span><span class="s1">"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                                </span>&lt;button onclick="app.toggleBadDish('</span><span class="s7">${</span><span class="s4">item</span><span class="s7">.</span><span class="s4">name</span><span class="s7">}</span><span class="s1">')" class="p-1"&gt;&lt;i class="</span><span class="s7">${</span><span class="s4">isBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'fa-solid'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'fa-circle-minus'</span><span class="s7">}</span><span class="s1"> </span><span class="s7">${</span><span class="s4">isBad </span><span class="s7">?</span><span class="s4"> </span><span class="s1">'text-red-400'</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'text-gray-200'</span><span class="s7">}</span><span class="s1">"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span>&lt;/li&gt;`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s11">}).</span><span class="s1">join</span><span class="s11">(</span><span class="s8">''</span><span class="s11">)}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="mt-4 pt-4 border-t border-gray-100"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-[9px] text-gray-400 font-bold mb-1 uppercase tracking-tighter"&gt;이 식단의 유발 물질&lt;/p&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex flex-wrap gap-1"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s7">${[...</span><span class="s14">new</span><span class="s4"> </span><span class="s17">Set</span><span class="s7">(</span><span class="s4">menuItems</span><span class="s7">.</span><span class="s4">flatMap</span><span class="s7">(</span><span class="s4">i </span><span class="s7">=&gt;</span><span class="s4"> i</span><span class="s7">.</span><span class="s4">nums</span><span class="s7">))].</span><span class="s4">sort</span><span class="s7">((</span><span class="s4">a</span><span class="s7">,</span><span class="s4">b</span><span class="s7">)=&gt;</span><span class="s4">a</span><span class="s7">-</span><span class="s4">b</span><span class="s7">).</span><span class="s4">map</span><span class="s7">(</span><span class="s4">n </span><span class="s7">=&gt;</span><span class="s4"> </span><span class="s1">`&lt;span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded"&gt;</span><span class="s7">${</span><span class="s4">n</span><span class="s7">}</span><span class="s1">.</span><span class="s7">${</span><span class="s4">allergyMap</span><span class="s7">[</span><span class="s4">n</span><span class="s7">]}</span><span class="s1">&lt;/span&gt;`</span><span class="s7">).</span><span class="s4">join</span><span class="s7">(</span><span class="s1">''</span><span class="s7">)</span><span class="s4"> </span><span class="s7">||</span><span class="s4"> </span><span class="s1">'&lt;span class="text-[9px] text-gray-300"&gt;정보 없음&lt;/span&gt;'</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>container</span><span class="s11">.</span><span class="s1">appendChild</span><span class="s11">(</span><span class="s1">card</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s11">});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">else</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s14">const</span><span class="s1"> targetMonth </span><span class="s11">=</span><span class="s1"> parseInt</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">4</span><span class="s11">,</span><span class="s18">6</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s14">const</span><span class="s1"> currentMonth </span><span class="s11">=</span><span class="s1"> </span><span class="s14">new</span><span class="s1"> </span><span class="s17">Date</span><span class="s11">().</span><span class="s1">getMonth</span><span class="s11">()</span><span class="s1"> </span><span class="s11">+</span><span class="s1"> </span><span class="s18">1</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>container</span><span class="s11">.</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-white rounded-3xl p-10 text-center border-2 border-dashed border-gray-100"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span>&lt;i class="fa-solid fa-utensils text-2xl"&gt;&lt;/i&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-gray-800 font-bold mb-1"&gt;급식 정보가 없어요&lt;/h3&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;p class="text-gray-400 text-xs leading-relaxed"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s7">${</span><span class="s4">targetMonth </span><span class="s7">&gt;</span><span class="s4"> currentMonth </span><span class="s7">?</span><span class="s4"> </span><span class="s1">`6월 식단은 보통 5월 말에 학교에서 등록합니다.&lt;br&gt;조금만 더 기다려주세요!`</span><span class="s4"> </span><span class="s7">:</span><span class="s4"> </span><span class="s1">'오늘은 급식 정보가 등록되지 않은 날입니다.'</span><span class="s7">}</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;/p&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;`</span><span class="s7">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">}</span><span class="s1"> </span><span class="s14">catch</span><span class="s1"> </span><span class="s11">(</span><span class="s1">e</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span><span class="s1"> console</span><span class="s11">.</span><span class="s1">error</span><span class="s11">(</span><span class="s1">e</span><span class="s11">);</span><span class="s1"> </span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">toggleLoader</span><span class="s11">(</span><span class="s14">false</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>handleDateChange</span><span class="s11">(</span><span class="s1">val</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">selectedDate </span><span class="s11">=</span><span class="s1"> val</span><span class="s11">.</span><span class="s1">replace</span><span class="s11">(</span><span class="s6">/-/</span><span class="s14">g</span><span class="s11">,</span><span class="s1"> </span><span class="s8">''</span><span class="s11">);</span><span class="s1"> </span><span class="s14">this</span><span class="s11">.</span><span class="s1">fetchMeal</span><span class="s11">();</span><span class="s1"> </span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>offsetDate</span><span class="s11">(</span><span class="s1">days</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> current </span><span class="s11">=</span><span class="s1"> </span><span class="s14">new</span><span class="s1"> </span><span class="s17">Date</span><span class="s11">(</span><span class="s8">`</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">0</span><span class="s11">,</span><span class="s18">4</span><span class="s11">)}</span><span class="s8">-</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">4</span><span class="s11">,</span><span class="s18">6</span><span class="s11">)}</span><span class="s8">-</span><span class="s11">${</span><span class="s1">state</span><span class="s11">.</span><span class="s1">selectedDate</span><span class="s11">.</span><span class="s1">substring</span><span class="s11">(</span><span class="s18">6</span><span class="s11">,</span><span class="s18">8</span><span class="s11">)}</span><span class="s8">`</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>current</span><span class="s11">.</span><span class="s1">setDate</span><span class="s11">(</span><span class="s1">current</span><span class="s11">.</span><span class="s1">getDate</span><span class="s11">()</span><span class="s1"> </span><span class="s11">+</span><span class="s1"> days</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>state</span><span class="s11">.</span><span class="s1">selectedDate </span><span class="s11">=</span><span class="s1"> current</span><span class="s11">.</span><span class="s1">toISOString</span><span class="s11">().</span><span class="s1">split</span><span class="s11">(</span><span class="s8">'T'</span><span class="s11">)[</span><span class="s18">0</span><span class="s11">].</span><span class="s1">replace</span><span class="s11">(</span><span class="s6">/-/</span><span class="s14">g</span><span class="s11">,</span><span class="s1"> </span><span class="s8">''</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">initMealView</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>toggleFavDish</span><span class="s11">(</span><span class="s1">name</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> idx </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">indexOf</span><span class="s11">(</span><span class="s1">name</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">idx </span><span class="s11">===</span><span class="s1"> </span><span class="s11">-</span><span class="s18">1</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">push</span><span class="s11">(</span><span class="s1">name</span><span class="s11">);</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">filter</span><span class="s11">(</span><span class="s1">d </span><span class="s11">=&gt;</span><span class="s1"> d </span><span class="s11">!==</span><span class="s1"> name</span><span class="s11">);</span><span class="s1"> </span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">else</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">splice</span><span class="s11">(</span><span class="s1">idx</span><span class="s11">,</span><span class="s1"> </span><span class="s18">1</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">save</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>toggleBadDish</span><span class="s11">(</span><span class="s1">name</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> idx </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">indexOf</span><span class="s11">(</span><span class="s1">name</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">idx </span><span class="s11">===</span><span class="s1"> </span><span class="s11">-</span><span class="s18">1</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">push</span><span class="s11">(</span><span class="s1">name</span><span class="s11">);</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">.</span><span class="s1">filter</span><span class="s11">(</span><span class="s1">d </span><span class="s11">=&gt;</span><span class="s1"> d </span><span class="s11">!==</span><span class="s1"> name</span><span class="s11">);</span><span class="s1"> </span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">else</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">.</span><span class="s1">splice</span><span class="s11">(</span><span class="s1">idx</span><span class="s11">,</span><span class="s1"> </span><span class="s18">1</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">save</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>toggleFavoriteSchool</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(!</span><span class="s1">state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">)</span><span class="s1"> </span><span class="s14">return</span><span class="s11">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">const</span><span class="s1"> idx </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">findIndex</span><span class="s11">(</span><span class="s1">f </span><span class="s11">=&gt;</span><span class="s1"> f</span><span class="s11">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s1"> </span><span class="s11">===</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">idx </span><span class="s11">===</span><span class="s1"> </span><span class="s11">-</span><span class="s18">1</span><span class="s11">)</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">push</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">currentSchool</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">else</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">splice</span><span class="s11">(</span><span class="s1">idx</span><span class="s11">,</span><span class="s1"> </span><span class="s18">1</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>localStorage</span><span class="s11">.</span><span class="s1">setItem</span><span class="s11">(</span><span class="s8">'favoriteSchools'</span><span class="s11">,</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">stringify</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">initMealView</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>removeSchoolFavorite</span><span class="s11">(</span><span class="s1">code</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>state</span><span class="s11">.</span><span class="s1">favorites </span><span class="s11">=</span><span class="s1"> state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">.</span><span class="s1">filter</span><span class="s11">(</span><span class="s1">f </span><span class="s11">=&gt;</span><span class="s1"> f</span><span class="s11">.</span><span class="s17">SD_SCHUL_CODE</span><span class="s1"> </span><span class="s11">!==</span><span class="s1"> code</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>localStorage</span><span class="s11">.</span><span class="s1">setItem</span><span class="s11">(</span><span class="s8">'favoriteSchools'</span><span class="s11">,</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">stringify</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">favorites</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>ui</span><span class="s11">.</span><span class="s1">renderFavorites</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>save</span><span class="s11">()</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>localStorage</span><span class="s11">.</span><span class="s1">setItem</span><span class="s11">(</span><span class="s8">'favDishes'</span><span class="s11">,</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">stringify</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">favDishes</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>localStorage</span><span class="s11">.</span><span class="s1">setItem</span><span class="s11">(</span><span class="s8">'badDishes'</span><span class="s11">,</span><span class="s1"> </span><span class="s17">JSON</span><span class="s11">.</span><span class="s1">stringify</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">badDishes</span><span class="s11">));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">this</span><span class="s11">.</span><span class="s1">fetchMeal</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s14">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'favorites-section'</span><span class="s11">).</span><span class="s1">classList</span><span class="s11">.</span><span class="s1">contains</span><span class="s11">(</span><span class="s8">'hidden'</span><span class="s11">)</span><span class="s1"> </span><span class="s11">===</span><span class="s1"> </span><span class="s14">false</span><span class="s11">)</span><span class="s1"> ui</span><span class="s11">.</span><span class="s1">renderFavorites</span><span class="s11">();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">};</span></p>
-<p class="p9"><span class="s16"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>window</span><span class="s11">.</span><span class="s1">onload </span><span class="s11">=</span><span class="s1"> </span><span class="s11">()</span><span class="s1"> </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'allergy-guide-grid'</span><span class="s11">).</span><span class="s1">innerHTML </span><span class="s11">=</span><span class="s1"> </span><span class="s17">Object</span><span class="s11">.</span><span class="s1">entries</span><span class="s11">(</span><span class="s1">allergyMap</span><span class="s11">).</span><span class="s1">map</span><span class="s11">(([</span><span class="s1">n</span><span class="s11">,</span><span class="s1"> v</span><span class="s11">])</span><span class="s1"> </span><span class="s11">=&gt;</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center gap-1 py-1"&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="bg-red-50 text-red-500 font-bold w-5 h-5 rounded flex items-center justify-center border border-red-100"&gt;</span><span class="s7">${</span><span class="s4">n</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-gray-600"&gt;</span><span class="s7">${</span><span class="s4">v</span><span class="s7">}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p11"><span class="s1"><span class="Apple-converted-space">            </span>`</span><span class="s7">).</span><span class="s4">join</span><span class="s7">(</span><span class="s1">''</span><span class="s7">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>ui</span><span class="s11">.</span><span class="s1">showSection</span><span class="s11">(</span><span class="s1">state</span><span class="s11">.</span><span class="s1">currentSchool </span><span class="s11">?</span><span class="s1"> </span><span class="s8">'meal'</span><span class="s1"> </span><span class="s11">:</span><span class="s1"> </span><span class="s8">'setup'</span><span class="s11">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s11">.</span><span class="s1">getElementById</span><span class="s11">(</span><span class="s8">'school-search-input'</span><span class="s11">).</span><span class="s1">onkeypress </span><span class="s11">=</span><span class="s1"> e </span><span class="s11">=&gt;</span><span class="s1"> e</span><span class="s11">.</span><span class="s1">key </span><span class="s11">===</span><span class="s1"> </span><span class="s8">'Enter'</span><span class="s1"> </span><span class="s11">&amp;&amp;</span><span class="s1"> app</span><span class="s11">.</span><span class="s1">searchSchool</span><span class="s11">();</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+
+<body class="max-w-md mx-auto min-h-screen shadow-xl bg-gray-50 pb-20">
+
+
+
+    <header class="sticky top-0 z-50 glass-morphism px-4 py-4 flex justify-between items-center shadow-sm">
+
+        <h1 class="text-xl font-bold text-blue-600"><i class="fa-solid fa-utensils mr-2"></i>급식 알리미</h1>
+
+    </header>
+
+
+
+    <main class="pb-32">
+
+        <!-- School Setup Section -->
+
+        <section id="setup-section" class="p-6 space-y-6">
+
+            <div class="text-center py-8">
+
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+
+                    <i class="fa-solid fa-school text-3xl text-blue-500"></i>
+
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800">학교를 검색하세요</h2>
+
+                <p class="text-gray-500 mt-2 text-sm">급식 정보를 가져올 학교를 지정합니다.</p>
+
+            </div>
+
+            <div class="relative">
+
+                <input type="text" id="school-search-input" placeholder="학교 이름 입력 (예: 서울고)" 
+
+                    class="w-full p-4 pr-12 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm transition-all">
+
+                <button onclick="app.searchSchool()" class="absolute right-4 top-1/2 -translate-y-1/2 text-blue-500">
+
+                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
+
+                </button>
+
+            </div>
+
+            <div id="school-search-results" class="space-y-2 max-h-64 overflow-y-auto"></div>
+
+        </section>
+
+
+
+        <!-- Meal Display Section -->
+
+        <section id="meal-section" class="hidden p-4 space-y-4">
+
+            <!-- Current School Info -->
+
+            <div id="current-school-card" class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-5 text-white shadow-lg flex justify-between items-center">
+
+                <div>
+
+                    <span id="display-school-location" class="text-blue-100 text-[10px] font-medium uppercase">교육청</span>
+
+                    <h2 id="display-school-name" class="text-xl font-bold">학교명</h2>
+
+                </div>
+
+                <button id="fav-toggle-btn" onclick="app.toggleFavoriteSchool()" class="bg-white/20 p-2 rounded-xl backdrop-blur-md">
+
+                    <i class="fa-regular fa-star text-xl"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Date Picker -->
+
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between">
+
+                <div class="flex items-center gap-3">
+
+                    <i class="fa-solid fa-calendar-day text-blue-500 text-lg"></i>
+
+                    <input type="date" id="meal-date-picker" onchange="app.handleDateChange(this.value)" 
+
+                        class="font-bold text-gray-700 focus:outline-none bg-transparent cursor-pointer">
+
+                </div>
+
+                <div class="flex gap-2">
+
+                    <button onclick="app.offsetDate(-1)" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50">
+
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+
+                    </button>
+
+                    <button onclick="app.offsetDate(1)" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-50">
+
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div id="meal-content" class="space-y-4"></div>
+
+
+
+            <!-- Allergy Guide (Always Visible) -->
+
+            <div class="mt-8 bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
+
+                <div class="flex items-center gap-2 mb-4 border-b pb-2">
+
+                    <i class="fa-solid fa-circle-exclamation text-red-500"></i>
+
+                    <h3 class="font-bold text-gray-800 text-sm">알레르기 유발 물질 안내</h3>
+
+                </div>
+
+                <div id="allergy-guide-grid" class="grid grid-cols-3 gap-2 text-[11px]">
+
+                    <!-- JS fills this -->
+
+                </div>
+
+                <p class="text-[10px] text-gray-400 mt-4 leading-tight text-center">* 학교 사정에 따라 식단이 변경될 수 있습니다.</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Favorites Section -->
+
+        <section id="favorites-section" class="hidden p-6 space-y-4">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">취향 관리</h2>
+
+            <div id="favorites-list" class="space-y-6"></div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Navigation -->
+
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto glass-morphism border-t border-gray-100 px-6 py-3 flex justify-around items-center rounded-t-3xl z-50">
+
+        <button onclick="ui.showSection('meal')" id="nav-meal" class="flex flex-col items-center gap-1 transition-all">
+
+            <i class="fa-solid fa-calendar-days text-xl"></i>
+
+            <span class="text-[10px]">급식 정보</span>
+
+        </button>
+
+        <button onclick="ui.showSection('setup')" id="nav-setup" class="flex flex-col items-center gap-1 transition-all">
+
+            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+
+            <span class="text-[10px]">학교 찾기</span>
+
+        </button>
+
+        <button onclick="ui.showSection('favorites')" id="nav-fav" class="flex flex-col items-center gap-1 transition-all">
+
+            <i class="fa-solid fa-heart text-xl"></i>
+
+            <span class="text-[10px]">취향/관리</span>
+
+        </button>
+
+    </nav>
+
+
+
+    <div id="global-loader" class="fixed inset-0 bg-white/80 z-[100] hidden flex flex-col items-center justify-center">
+
+        <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+
+        <p class="text-blue-600 font-medium text-sm">급식 정보를 불러오는 중...</p>
+
+    </div>
+
+
+
+    <script>
+
+        const allergyMap = {
+
+            "1": "난류", "2": "우유", "3": "메밀", "4": "땅콩", "5": "대두", "6": "밀", "7": "고등어", "8": "게", "9": "새우", "10": "돼지고기", "11": "복숭아", "12": "토마토", "13": "아황산류", "14": "호두", "15": "닭고기", "16": "쇠고기", "17": "오징어", "18": "조개류", "19": "잣"
+
+        };
+
+
+
+        const state = {
+
+            currentSchool: JSON.parse(localStorage.getItem('selectedSchool')) || null,
+
+            favorites: JSON.parse(localStorage.getItem('favoriteSchools')) || [],
+
+            favDishes: JSON.parse(localStorage.getItem('favDishes')) || [],
+
+            badDishes: JSON.parse(localStorage.getItem('badDishes')) || [],
+
+            selectedDate: new Date().toISOString().split('T')[0].replace(/-/g, '')
+
+        };
+
+
+
+        const ui = {
+
+            showSection(section) {
+
+                document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+
+                document.querySelectorAll('nav button').forEach(b => b.classList.remove('text-blue-600', 'scale-110'));
+
+                
+
+                if (section === 'meal') {
+
+                    if (!state.currentSchool) return this.showSection('setup');
+
+                    document.getElementById('meal-section').classList.remove('hidden');
+
+                    document.getElementById('nav-meal').classList.add('text-blue-600', 'scale-110');
+
+                    app.initMealView();
+
+                } else if (section === 'setup') {
+
+                    document.getElementById('setup-section').classList.remove('hidden');
+
+                    document.getElementById('nav-setup').classList.add('text-blue-600', 'scale-110');
+
+                } else if (section === 'favorites') {
+
+                    document.getElementById('favorites-section').classList.remove('hidden');
+
+                    document.getElementById('nav-fav').classList.add('text-blue-600', 'scale-110');
+
+                    this.renderFavorites();
+
+                }
+
+            },
+
+            toggleLoader(show) {
+
+                document.getElementById('global-loader').classList.toggle('hidden', !show);
+
+            },
+
+            renderFavorites() {
+
+                const list = document.getElementById('favorites-list');
+
+                let html = '';
+
+
+
+                // 선호/기피 음식 관리
+
+                const renderChipList = (title, items, colorClass, icon, toggleFunc) => `
+
+                    <div>
+
+                        <h4 class="text-xs font-bold ${colorClass} mb-3 flex items-center gap-1">
+
+                            <i class="${icon}"></i> ${title}
+
+                        </h4>
+
+                        <div class="flex flex-wrap gap-2">
+
+                            ${items.length ? items.map(dish => `
+
+                                <div class="bg-white border px-3 py-2 rounded-xl flex items-center gap-2 shadow-sm">
+
+                                    <span class="text-sm font-medium text-gray-700">${dish}</span>
+
+                                    <button onclick="app.${toggleFunc}('${dish}')" class="text-gray-300 hover:text-red-500"><i class="fa-solid fa-circle-xmark"></i></button>
+
+                                </div>
+
+                            `).join('') : `<p class="text-xs text-gray-400 italic">등록된 음식이 없습니다.</p>`}
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+
+                html += renderChipList('내가 좋아하는 반찬', state.favDishes, 'text-blue-500', 'fa-solid fa-star', 'toggleFavDish');
+
+                html += renderChipList('내가 싫어하는 반찬', state.badDishes, 'text-red-500', 'fa-solid fa-circle-minus', 'toggleBadDish');
+
+
+
+                // 즐겨찾는 학교
+
+                html += `<div class="pt-4 border-t mt-4">
+
+                    <h4 class="text-xs font-bold text-gray-400 mb-3 uppercase">즐겨찾는 학교</h4>
+
+                    ${state.favorites.length ? state.favorites.map(s => `
+
+                        <div class="bg-white p-4 rounded-2xl border mb-2 flex justify-between items-center shadow-sm">
+
+                            <div onclick="app.setSchool(${JSON.stringify(s).replace(/"/g, '&quot;')})" class="cursor-pointer">
+
+                                <p class="font-bold text-gray-800 text-sm">${s.SCHUL_NM}</p>
+
+                                <p class="text-[10px] text-gray-400">${s.ORG_RDNMA}</p>
+
+                            </div>
+
+                            <button onclick="app.removeSchoolFavorite('${s.SD_SCHUL_CODE}')" class="text-red-300"><i class="fa-solid fa-trash-can"></i></button>
+
+                        </div>
+
+                    `).join('') : `<p class="text-xs text-gray-400 italic">등록된 학교가 없습니다.</p>`}
+
+                </div>`;
+
+
+
+                list.innerHTML = html;
+
+            }
+
+        };
+
+
+
+        const app = {
+
+            async searchSchool() {
+
+                const query = document.getElementById('school-search-input').value.trim();
+
+                if (query.length < 2) return;
+
+                ui.toggleLoader(true);
+
+                try {
+
+                    const res = await fetch(`https://open.neis.go.kr/hub/schoolInfo?Type=json&SCHUL_NM=${encodeURIComponent(query)}`);
+
+                    const data = await res.json();
+
+                    const container = document.getElementById('school-search-results');
+
+                    container.innerHTML = '';
+
+                    if (data.schoolInfo) {
+
+                        data.schoolInfo[1].row.forEach(school => {
+
+                            const div = document.createElement('div');
+
+                            div.className = "bg-white p-4 rounded-2xl border border-gray-100 shadow-sm active:scale-95 transition-all cursor-pointer";
+
+                            div.innerHTML = `<p class="font-bold text-gray-800">${school.SCHUL_NM}</p><p class="text-[10px] text-gray-400">${school.ORG_RDNMA}</p>`;
+
+                            div.onclick = () => this.setSchool(school);
+
+                            container.appendChild(div);
+
+                        });
+
+                    } else {
+
+                        container.innerHTML = `<p class="text-center text-gray-400 py-6 text-sm">학교를 찾을 수 없습니다.</p>`;
+
+                    }
+
+                } catch (e) { console.error(e); }
+
+                ui.toggleLoader(false);
+
+            },
+
+
+
+            setSchool(school) {
+
+                state.currentSchool = school;
+
+                localStorage.setItem('selectedSchool', JSON.stringify(school));
+
+                ui.showSection('meal');
+
+            },
+
+
+
+            initMealView() {
+
+                document.getElementById('display-school-name').textContent = state.currentSchool.SCHUL_NM;
+
+                document.getElementById('display-school-location').textContent = state.currentSchool.ATPT_OFCDC_SC_NM;
+
+                const picker = document.getElementById('meal-date-picker');
+
+                picker.value = `${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`;
+
+                
+
+                const isFav = state.favorites.some(f => f.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
+
+                document.getElementById('fav-toggle-btn').innerHTML = isFav ? '<i class="fa-solid fa-star text-yellow-400"></i>' : '<i class="fa-regular fa-star text-white"></i>';
+
+                
+
+                this.fetchMeal();
+
+            },
+
+
+
+            async fetchMeal() {
+
+                ui.toggleLoader(true);
+
+                const container = document.getElementById('meal-content');
+
+                try {
+
+                    const res = await fetch(`https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&ATPT_OFCDC_SC_CODE=${state.currentSchool.ATPT_OFCDC_SC_CODE}&SD_SCHUL_CODE=${state.currentSchool.SD_SCHUL_CODE}&MLSV_YMD=${state.selectedDate}`);
+
+                    const data = await res.json();
+
+                    container.innerHTML = '';
+
+                    
+
+                    if (data.mealServiceDietInfo) {
+
+                        data.mealServiceDietInfo[1].row.forEach(meal => {
+
+                            const menuItems = meal.DDISH_NM.split('<br/>').map(item => {
+
+                                const allergyMatch = item.match(/\(([^)]+)\)/);
+
+                                return { 
+
+                                    name: item.replace(/\(([^)]+)\)/, '').trim(), 
+
+                                    nums: allergyMatch ? allergyMatch[1].split('.') : [] 
+
+                                };
+
+                            });
+
+
+
+                            const hasFav = menuItems.some(i => state.favDishes.includes(i.name));
+
+                            const hasBad = menuItems.some(i => state.badDishes.includes(i.name));
+
+
+
+                            const card = document.createElement('div');
+
+                            card.className = `rounded-2xl p-5 shadow-sm border transition-all ${hasFav ? 'bg-blue-50 border-blue-200' : hasBad ? 'bg-red-50 border-red-100' : 'bg-white border-gray-100'}`;
+
+                            card.innerHTML = `
+
+                                <div class="flex justify-between items-start mb-4">
+
+                                    <div>
+
+                                        <span class="${hasFav ? 'bg-blue-500' : hasBad ? 'bg-red-500' : 'bg-gray-700'} text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">${meal.MMEAL_SC_NM}</span>
+
+                                        ${hasFav ? '<p class="text-[10px] font-bold text-blue-500 mt-1">✨ 최애 반찬 포함!</p>' : ''}
+
+                                        ${hasBad ? '<p class="text-[10px] font-bold text-red-500 mt-1">⚠️ 기피 반찬 주의</p>' : ''}
+
+                                    </div>
+
+                                    <span class="text-[10px] text-gray-400">${meal.CAL_INFO}</span>
+
+                                </div>
+
+                                <ul class="space-y-3">
+
+                                    ${menuItems.map(item => {
+
+                                        const isFav = state.favDishes.includes(item.name);
+
+                                        const isBad = state.badDishes.includes(item.name);
+
+                                        return `
+
+                                        <li class="flex items-center justify-between">
+
+                                            <div class="flex-1">
+
+                                                <span class="text-sm font-medium ${isFav ? 'text-blue-700 font-bold' : isBad ? 'text-red-400 line-through' : 'text-gray-700'}">${item.name}</span>
+
+                                                <span class="inline-block">${item.nums.map(n => `<span class="allergy-badge">${n}</span>`).join('')}</span>
+
+                                            </div>
+
+                                            <div class="flex gap-2">
+
+                                                <button onclick="app.toggleFavDish('${item.name}')" class="p-1"><i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-star ${isFav ? 'text-yellow-400' : 'text-gray-200'}"></i></button>
+
+                                                <button onclick="app.toggleBadDish('${item.name}')" class="p-1"><i class="${isBad ? 'fa-solid' : 'fa-circle-minus'} ${isBad ? 'text-red-400' : 'text-gray-200'}"></i></button>
+
+                                            </div>
+
+                                        </li>`;
+
+                                    }).join('')}
+
+                                </ul>
+
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+
+                                    <p class="text-[9px] text-gray-400 font-bold mb-1 uppercase tracking-tighter">이 식단의 유발 물질</p>
+
+                                    <div class="flex flex-wrap gap-1">
+
+                                        ${[...new Set(menuItems.flatMap(i => i.nums))].sort((a,b)=>a-b).map(n => `<span class="text-[9px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">${n}.${allergyMap[n]}</span>`).join('') || '<span class="text-[9px] text-gray-300">정보 없음</span>'}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                            container.appendChild(card);
+
+                        });
+
+                    } else {
+
+                        const targetMonth = parseInt(state.selectedDate.substring(4,6));
+
+                        const currentMonth = new Date().getMonth() + 1;
+
+                        container.innerHTML = `
+
+                            <div class="bg-white rounded-3xl p-10 text-center border-2 border-dashed border-gray-100">
+
+                                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
+
+                                    <i class="fa-solid fa-utensils text-2xl"></i>
+
+                                </div>
+
+                                <h3 class="text-gray-800 font-bold mb-1">급식 정보가 없어요</h3>
+
+                                <p class="text-gray-400 text-xs leading-relaxed">
+
+                                    ${targetMonth > currentMonth ? `6월 식단은 보통 5월 말에 학교에서 등록합니다.<br>조금만 더 기다려주세요!` : '오늘은 급식 정보가 등록되지 않은 날입니다.'}
+
+                                </p>
+
+                            </div>`;
+
+                    }
+
+                } catch (e) { console.error(e); }
+
+                ui.toggleLoader(false);
+
+            },
+
+
+
+            handleDateChange(val) { state.selectedDate = val.replace(/-/g, ''); this.fetchMeal(); },
+
+            offsetDate(days) {
+
+                const current = new Date(`${state.selectedDate.substring(0,4)}-${state.selectedDate.substring(4,6)}-${state.selectedDate.substring(6,8)}`);
+
+                current.setDate(current.getDate() + days);
+
+                state.selectedDate = current.toISOString().split('T')[0].replace(/-/g, '');
+
+                this.initMealView();
+
+            },
+
+            toggleFavDish(name) {
+
+                const idx = state.favDishes.indexOf(name);
+
+                if (idx === -1) { state.favDishes.push(name); state.badDishes = state.badDishes.filter(d => d !== name); }
+
+                else state.favDishes.splice(idx, 1);
+
+                this.save();
+
+            },
+
+            toggleBadDish(name) {
+
+                const idx = state.badDishes.indexOf(name);
+
+                if (idx === -1) { state.badDishes.push(name); state.favDishes = state.favDishes.filter(d => d !== name); }
+
+                else state.badDishes.splice(idx, 1);
+
+                this.save();
+
+            },
+
+            toggleFavoriteSchool() {
+
+                if (!state.currentSchool) return;
+
+                const idx = state.favorites.findIndex(f => f.SD_SCHUL_CODE === state.currentSchool.SD_SCHUL_CODE);
+
+                if (idx === -1) state.favorites.push(state.currentSchool);
+
+                else state.favorites.splice(idx, 1);
+
+                localStorage.setItem('favoriteSchools', JSON.stringify(state.favorites));
+
+                this.initMealView();
+
+            },
+
+            removeSchoolFavorite(code) {
+
+                state.favorites = state.favorites.filter(f => f.SD_SCHUL_CODE !== code);
+
+                localStorage.setItem('favoriteSchools', JSON.stringify(state.favorites));
+
+                ui.renderFavorites();
+
+            },
+
+            save() {
+
+                localStorage.setItem('favDishes', JSON.stringify(state.favDishes));
+
+                localStorage.setItem('badDishes', JSON.stringify(state.badDishes));
+
+                this.fetchMeal();
+
+                if (document.getElementById('favorites-section').classList.contains('hidden') === false) ui.renderFavorites();
+
+            }
+
+        };
+
+
+
+        window.onload = () => {
+
+            document.getElementById('allergy-guide-grid').innerHTML = Object.entries(allergyMap).map(([n, v]) => `
+
+                <div class="flex items-center gap-1 py-1">
+
+                    <span class="bg-red-50 text-red-500 font-bold w-5 h-5 rounded flex items-center justify-center border border-red-100">${n}</span>
+
+                    <span class="text-gray-600">${v}</span>
+
+                </div>
+
+            `).join('');
+
+            ui.showSection(state.currentSchool ? 'meal' : 'setup');
+
+        };
+
+        document.getElementById('school-search-input').onkeypress = e => e.key === 'Enter' && app.searchSchool();
+
+    </script>
+
 </body>
+
 </html>
